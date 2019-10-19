@@ -19,6 +19,7 @@ public class Rook extends ChessPiece {
 
 	@Override
 	boolean isValidMove(ChessBoard board, int row, int col) {
+		
 		ChessPiece pieceAt = null;
 
 		//System.out.println(this.row + "," + this.col + "=>" + row + "," + col);

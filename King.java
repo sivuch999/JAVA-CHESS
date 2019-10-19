@@ -23,7 +23,9 @@ public class King extends ChessPiece {
 
 		ChessPiece pieceAt = board.pieceAt(row, col);
 
-		if (Math.abs(this.row - row) == 1 || Math.abs(this.col - col) == 1) {
+		if ((Math.abs(this.row - row) == 0 && Math.abs(this.col - col) == 1)
+				|| (Math.abs(this.row - row) == 1 && Math.abs(this.col - col) == 0)
+				|| (Math.abs(this.row - row) == 1 && Math.abs(this.col - col) == 1)) {
 			return pieceAt != null ? (pieceAt.player != this.player) : true;
 		} else {
 			return false;
