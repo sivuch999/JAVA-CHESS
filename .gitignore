@@ -43,6 +43,7 @@ ERCONDO/
 node_modules/
 jspm_packages/
 upload-temp/
+.vscode/
 
 # Typescript v1 declaration files
 typings/
