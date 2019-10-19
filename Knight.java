@@ -1,14 +1,14 @@
 
 public class Knight extends ChessPiece {
 
-	public Knight(int row, int col, int color) {
-		super(row, col, color);
+	public Knight(int row, int col,Player player) {
+		super(row, col,player);
 		
 	}
 
 	@Override
 	void printPiece() {
-		System.out.print((this.color == 0) ? "n " : "N ");
+		System.out.print((this.player.number == 0) ? "n " : "N ");
 		
 	}
 

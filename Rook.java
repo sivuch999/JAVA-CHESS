@@ -1,14 +1,14 @@
 
 public class Rook extends ChessPiece {
 
-	public Rook(int row, int col, int color) {
-		super(row, col, color);
+	public Rook(int row, int col,Player player) {
+		super(row, col,player);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	void printPiece() {
-		System.out.print((this.color == 0) ? "r " : "R ");
+		System.out.print((this.player.number == 0) ? "r " : "R ");
 		
 	}
 

@@ -18,10 +18,10 @@ public class ChessGUI {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+
 		ChessBoard board = new ChessBoard();
 		board.printBoard();
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -50,43 +50,39 @@ public class ChessGUI {
 		frame.setBackground(new Color(0, 102, 102));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-	JPanel panel = new BoardPanel();
-	frame.getContentPane().add(panel, BorderLayout.NORTH);
+
+		JPanel panel = new BoardPanel();
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
 	}
-	
-	
-	
+
 	private class BoardPanel extends JPanel {
 		final List<TilePanel> boardTiles;
-		
-		BoardPanel(){
+
+		BoardPanel() {
 			super(new GridLayout(8, 8));
 			this.boardTiles = new ArrayList<TilePanel>();
-			for(int i = 0; i < 64; i++)
-			{
+			for (int i = 0; i < 64; i++) {
 				final TilePanel tile = new TilePanel(i);
 				this.boardTiles.add(tile);
 				add(tile);
 			}
-			
+
 			setPreferredSize(new Dimension(10, 10));
 		}
 	}
-	
+
 	private class TilePanel extends JPanel {
 		private final int tileId;
-		
-		TilePanel(final int tileId){
+
+		TilePanel(final int tileId) {
 			super(new GridBagLayout());
 			this.tileId = tileId;
-			if(tileId %2 == 0)
+			if (tileId % 2 == 0)
 				setBackground(Color.decode("#FFFACD"));
 			else
 				setBackground(Color.decode("#593E1A"));
 		}
-		
+
 	}
-	
+
 }
