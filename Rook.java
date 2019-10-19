@@ -19,12 +19,46 @@ public class Rook extends ChessPiece {
 
 	@Override
 	boolean isValidMove(ChessBoard board, int row, int col) {
-		if(this.row != row && this.col != col) {
-			System.out.println("Can't Move!");
+		ChessPiece pieceAt = null;
+
+		//System.out.println(this.row + "," + this.col + "=>" + row + "," + col);
+
+		if (row < 0 || col < 0 || row > board.BOARD_SIZE || col > board.BOARD_SIZE)
+			return false;
+
+		if (this.row == row) {
+			if (this.col > col) {
+				for (int i = this.col - 1; i >= col; i--) {
+					pieceAt = board.pieceAt(row, i);
+					if (pieceAt != null)
+						return pieceAt.player != this.player;
+				}
+			} else {
+				for (int i = this.col + 1; i <= col; i++) {
+					pieceAt = board.pieceAt(row, i);
+					if (pieceAt != null)
+						return pieceAt.player != this.player;
+				}
+			}
+			return pieceAt != null ? (pieceAt.player != this.player) : true;
+		} else if (this.col == col) {
+			if (this.row > row) {
+				for (int i = this.row - 1; i >= row; i--) {
+					pieceAt = board.pieceAt(i, col);
+					if (pieceAt != null)
+						return pieceAt.player != this.player;
+				}
+			} else {
+				for (int i = this.row + 1; i <= row; i++) {
+					pieceAt = board.pieceAt(i, col);
+					if (pieceAt != null)
+						return pieceAt.player != this.player;
+				}
+			}
+			return pieceAt != null ? (pieceAt.player != this.player) : true;
+		} else {
 			return false;
 		}
-		return true;
 	}
-	
-	
+
 }

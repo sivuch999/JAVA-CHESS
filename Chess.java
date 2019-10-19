@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Chess {
+	
 	public static int turns = 0;
 	public static Player[] players = { null, null };
 	public static String moves;
@@ -20,7 +21,7 @@ public class Chess {
 		board.printBoard();
 
 		while (true) {
-			
+
 			System.out.print("Player " + (players[turns].number) + " move: ");
 
 			moves = scn.next();
@@ -46,15 +47,18 @@ public class Chess {
 		System.out.println();
 
 		ChessPiece pieceFrom = board.pieceAt(from[0], from[1]);
+		if (pieceFrom != null) {
+			System.out.println("type: " + pieceFrom.getType());
+		}
 
-		if (pieceFrom != null && pieceFrom.player == players[turns] &&  pieceFrom.isValidMove(board, to[0], to[1])) {
+		if (pieceFrom != null && pieceFrom.player == players[turns] && pieceFrom.isValidMove(board, to[0], to[1])) {
 
 			System.out.println("move[" + from[0] + from[1] + "=>" + to[0] + to[1] + "]");
 
 			pieceFrom.row = to[0];
 			pieceFrom.col = to[1];
-			
-			board.switchPiece(from,pieceFrom);
+
+			board.switchPiece(from, pieceFrom);
 
 			turns = turns == 0 ? 1 : 0;
 
