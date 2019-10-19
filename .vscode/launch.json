@@ -9,7 +9,7 @@
             "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "mainClass": "C:\\Users\\Souppy\\Desktop\\SW-DEV\\Chess.java"
+            "mainClass": "C:\\Users\\Souppy\\Desktop\\JAVA-CHESS\\Chess.java"
         }
     ]
 }
