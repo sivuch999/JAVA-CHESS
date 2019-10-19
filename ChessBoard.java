@@ -60,7 +60,7 @@ public class ChessBoard {
 	}
 
 	void printBoard() {
-		System.out.flush();
+		//System.out.flush();
 		Integer indexRow = 8, row = 0, col = 0;
 		System.out.println();
 		System.out.println("   A B C D E F G H  ");

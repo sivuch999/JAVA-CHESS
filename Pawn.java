@@ -27,12 +27,14 @@ public class Pawn extends ChessPiece {
 		ChessPiece pieceAt = board.pieceAt(row, col);
 
 		Integer direction = this.player.number == 0 ? 1 : -1;
-		
+
 		if (Math.abs(this.row - row) * direction <= (this.isFirst ? 2 : 1)) {
 			if (this.col - col == -1 || this.col - col == 1) {
 				if (pieceAt != null) {
 					if (pieceAt.player != this.player) {
-						isFirst = !isFirst;
+						if (isFirst) {
+							isFirst = !isFirst;
+						}
 						return true;
 					} else {
 						return false;
@@ -44,7 +46,9 @@ public class Pawn extends ChessPiece {
 				if (pieceAt != null) {
 					return false;
 				} else {
-					isFirst = !isFirst;
+					if (isFirst) {
+						isFirst = !isFirst;
+					}
 					return true;
 				}
 			} else {
